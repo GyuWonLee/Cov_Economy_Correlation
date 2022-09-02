@@ -1,0 +1,266 @@
+<html xmlns:th="www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>NGOT TEAM PROJECT</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+
+
+	<link id="contextPathHolder" th:data-contextPath="${@environment.getProperty('thymeleaf.context.path.value')}" />
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" th:href="@{https://fonts.googleapis.com}" />
+	<link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin />
+	<link
+		th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap}"
+		rel="stylesheet" />
+
+	<!-- Icon Font Stylesheet -->
+	<link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css}" rel="stylesheet" />
+	<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet" />
+
+	<!-- Libraries Stylesheet -->
+	<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet" />
+	<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet" />
+
+	<!-- Customized Bootstrap Stylesheet -->
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+	<!-- Template Stylesheet -->
+	<link th:href="@{/css/style.css}" rel="stylesheet" />
+	<link id="contextPathHolder" th:data-contextPath="${@environment.getProperty('thymeleaf.context.path.value')}" />
+	
+</head>
+<!-- Topbar End -->
+<div class="container-fluid bg-light p-0">
+	<div class="row gx-0 d-none d-lg-flex">
+		<div class="col-lg-7 px-5 text-start">
+			<div class="h-100 d-inline-flex align-items-center border-start border-end px-3">
+				<small class="fa fa-phone-alt me-2"></small>
+				<a th:href='@{tel:02-3486-3456}' style="color: #8D9297;"><small>02-3486-3456</small><a>
+			</div>
+			<div class="h-100 d-inline-flex align-items-center border-end px-3">
+				<small class="fa fa-globe me-2"></small>
+				<a th:href="@{https://www.bitacademy.com/}"
+					style="color: #8D9297;"><small>https://www.bitacademy.com/</small></a>
+			</div>
+		</div>
+		<div class="col-lg-5 px-5 text-end">
+			<div class="h-100 d-inline-flex align-items-center">
+				<a class="btn btn-square border" th:href="@{https://github.com/BitMiniProject}"><i
+						class="fab fa-github"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+	<a th:href="@{/index/}" class="navbar-brand d-flex align-items-center">
+		<h1 class="m-0">
+			<img th:src="@{/img/3.png}" style="width: 100px;" alt="">
+		</h1>
+	</a>
+	<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<div class="navbar-nav ms-auto py-3 py-lg-0">
+			<a th:href="@{/index/}" class="nav-item nav-link">Home</a>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ms-auto py-3 py-lg-0">
+					<div class="nav-item dropdown">
+						<a th:href="@{/#}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown ">분석</a>
+						<div class="dropdown-menu bg-light m-0">
+							<a th:href="@{/index/feature}" class="dropdown-item">경기 악화 판단 지수</a>
+							<a th:href="@{/index/appointment}" class="dropdown-item "> 취업의 주 요인</a>
+							<a th:href="@{/index/about}" class="dropdown-item">실업률 주 요인</a>
+							<a th:href="@{/index/testimonial}" class="dropdown-item">결론</a>
+						</div>
+					</div>
+					<div class="nav-item dropdown">
+						<a th:href="@{/#}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">ETC</a>
+						<div class="dropdown-menu bg-light m-0">
+							<a th:href="@{/index/team}" class="dropdown-item">팀 소개</a>
+							<a th:href="@{/index/contact}" class="dropdown-item active">CONTACT US</a>
+						</div>
+					</div>
+					<a th:href="@{/index/board}" class="nav-item nav-link ">자유게시판</a>
+				</div>
+			</div>
+</nav>
+<!-- Navbar End -->
+
+<!-- Page Header Start -->
+
+<!-- Page Header End -->
+
+<!-- Appointment End -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+	<div class="container text-center py-5">
+		<h1 class="display-4 text-white animated slideInDown mb-4">CONTACT US</h1>
+	</div>
+</div>
+<!-- Page Header End -->
+
+<div class="container-xxl py-5">
+	<div class="container">
+		<div class="row g-5">
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+				<div class="border-start border-5 border-primary ps-4 mb-5">
+					<h6 style="color: #9D9297;">문의</h6>
+					<b>
+						<h1 class="display-6 mb-0">
+							CONTACT US
+						</h1>
+					</b>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-xxl py-5">
+	<div class="container">
+		<div class="row g-5">
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 450px">
+				<div class="position-relative h-100">
+					<iframe
+						th:src="@{https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12662.253498164542!2d127.02483020262451!3d37.49462870000013!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x44f6db1c2b6c3bf7!2z67mE7Yq46rWQ7Jyh7IS87YSw!5e0!3m2!1sko!2skr!4v1660876902662!5m2!1sko!2skr}"
+						width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+			</div>
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+				<div class="border-start border-5 border-primary ps-4 mb-5">
+					<h6 class="text-body text-uppercase mb-2">Contact Us</h6>
+					<h1 class="display-6 mb-0">
+						질문이 있으시면 아래 항목에 적어주세요.
+					</h1>
+				</div>
+				<p class="mb-4">
+					아래 메시지를 적어주시면 자유게시판에 글이 자동으로 업로드됩니다.
+					<a th:href="@{/index/board/}">게시판 이동</a>
+				</p>
+				<form name="articleForm" method="post" th:action="@{/index/board/addArticle}">
+					<div class="row g-3">
+						<div class="col-md-6">
+							<div class="form-floating">
+								<input type="text" class="form-control border-0 bg-light" name="name" 
+									placeholder="Your Name" />
+								<label for="name">성함</label>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-floating">
+								<input type="email" class="form-control border-0 bg-light" name="email"
+									placeholder="Your Email" />
+								<label for="email">이메일</label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-floating">
+								<input type="text" class="form-control border-0 bg-light" name="subject"
+									placeholder="Subject" />&nbsp;
+								<label for="subject">주제</label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-floating">
+								<textarea class="form-control border-0 bg-light" placeholder="Leave a message here"
+									name="message" style="height: 150px"></textarea>
+								<label for="message">메시지</label>
+							</div>
+						</div>
+						<div class="col-12">
+							<a th:href="@{/index/board}"><button class="btn btn-primary py-3 px-5" type="button">
+									게시판 가기
+								</button></a> &nbsp;
+
+
+							<button class="btn btn-primary py-3 px-5" type="submit">
+								등록하기
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer Start -->
+<div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+	<div class="container py-5">
+		<div class="row g-5">
+			<div class="col-lg-3 col-md-6">
+				<div class="container">
+					비트교육센터 미니프로젝트
+					<h2 class="title">
+						<span class="title-word title-word-1">New</span><br>
+						<span class="title-word title-word-2">Generation</span><br>
+						<span class="title-word title-word-3">Of</span><br>
+						<span class="title-word title-word-4">Technology</span>
+					</h2>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<h4 class="text-light mb-4">Address</h4>
+				<p>
+					<i class="fa fa-map-marker-alt me-3"></i>서울특별시 서초구 서초대로74길 33
+				</p>
+				<p><i class="fa fa-phone-alt me-3"></i>02-3486-3456</p>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<h4 class="text-light mb-4">Quick Links</h4>
+				<a class="btn btn-link" th:href="@{/test/feature}"><i class="fa fa-check"> 경기 악화 판단 지수</i></a>
+				<a class="btn btn-link" th:href="@{/test/appointment}"><i class="fa fa-check"> 취업의 주 요인</i></a>
+				<a class="btn btn-link" th:href="@{/test/about}"><i class="fa fa-check"> 실업률 주 요인</i></a>
+				<a class="btn btn-link" th:href="@{/test/testimonial}"><i class="fa fa-check"> 결론</i></a>
+				<a class="btn btn-link" th:href="@{/test/team}"><i class="fa fa-check"> 팀 소개</i></a>
+				<a class="btn btn-link" th:href="@{/test/contact}"><i class="fa fa-check"> contact us</i></a>
+				<a class="btn btn-link" th:href="@{/test/board}"><i class="fa fa-check"> 자유게시판</i></a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<img th:src="@{/img/4.png}" alt="" style="width: 350px;">
+			</div>
+		</div>
+		<div class="container-fluid copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+						&copy; <a th:href="@{#header}">NGOT</a>, All Right Reserved.
+					</div>
+					<div class="col-md-6 text-center text-md-end">
+						<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+						Designed By <a th:href="@{https://htmlcodex.com}">HTML Codex</a>
+						<br />Distributed By:
+						<a th:href="@{https://themewagon.com}" target="_blank">ThemeWagon</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer End -->
+
+		<!-- Back to Top -->
+		<div class="moveTopBtn">
+			<a th:href="@{#header}" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+					class="bi bi-arrow-up"></i></a>
+		</div>
+
+		<!-- JavaScript Libraries -->
+		<script th:src="@{https://code.jquery.com/jquery-3.4.1.min.js}"></script>
+		<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js}"></script>
+		<script th:src="@{/lib/wow/wow.min.js}"></script>
+		<script th:src="@{/lib/easing/easing.min.js}"></script>
+		<script th:src="@{/lib/waypoints/waypoints.min.js}"></script>
+		<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+
+		<!-- Template Javascript -->
+		<script th:src="@{/js/main.js}"></script>
+	</div>
+	</body>
+
+</html>

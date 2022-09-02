@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "korea",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [{"취학률및진학률":"고등교육기관","a2012":null,"a2013":null,"a2014":null,"a2015":null,"a2016":null,
+"a2017":null,"a2018":null,"a2019":null,"a2020":null,"a2021":null},
+{"취학률및진학률":"고등학교","a2012":null,"a2013":null,"a2014":null,"a2015":null,
+"a2016":null,"a2017":null,"a2018":null,"a2019":null,"a2020":null,"a2021":null},
+{"취학률및진학률":"유치원","a2012":null,"a2013":null,"a2014":null,"a2015":null,"a2016":null,
+"a2017":null,"a2018":null,"a2019":null,"a2020":null,"a2021":null},{"취학률및진학률":"중학교","a2012":null,
+"a2013":null,"a2014":null,"a2015":null,"a2016":null,"a2017":null,"a2018":null,"a2019":null,"a2020":null,
+"a2021":null},{"취학률및진학률":"초등학교","a2012":null,"a2013":null,"a2014":null,"a2015":null,"a2016":null,
+"a2017":null,"a2018":null,"a2019":null,"a2020":null,"a2021":null}]
+ }
+

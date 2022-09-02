@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+#container {
+	width: 700px;
+	min-height: 700px;
+	float: left;
+	margin: 15px 35px;
+}
+#states path {
+	fill: #ffffff;
+	stroke: rgb(149, 202, 255);
+	stroke-width: 1.5px;
+}
+
+#states path:hover {
+	fill: #2d81ff;
+}
+
+#states .active {
+	fill: rgb(255, 255, 128);
+}
+
+#states .activeDetail {
+	fill: #2d81ff;
+}
+
+#states path {
+	cursor: pointer;
+}
+
+#states text {
+	cursor: pointer;
+	font-size: 12px;
+	fill: rgb(0 0 0);
+	font-weight: bold;
+}
+
+#label-Gyeongsangbuk-do{
+	color:red;
+}

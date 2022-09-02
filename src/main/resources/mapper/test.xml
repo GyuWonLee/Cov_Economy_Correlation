@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lastcoder.dao.TestDao">
+
+	<resultMap type="testVO" id="articleResult">
+
+		<result property="year2012" column="2012" />
+		<result property="year2013" column="2013" />
+		<result property="year2014" column="2014" />
+		<result property="year2015" column="2015" />
+		<result property="year2016" column="2016" />
+		<result property="year2017" column="2017" />
+		<result property="year2018" column="2018" />
+		<result property="year2019" column="2019" />
+		<result property="year2020" column="2020" />
+		
+	</resultMap>
+	
+	<select id="selectAllArticles" resultMap="articleResult">
+		<![CDATA[
+			select * from enterencerate
+		]]>
+	</select>
+
+</mapper>

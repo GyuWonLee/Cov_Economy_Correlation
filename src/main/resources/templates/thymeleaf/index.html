@@ -1,0 +1,413 @@
+<html xmlns:th="www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>NGOT TEAM PROJECT</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+
+	<script type="text/javascript" th:src="@{/js/d3.js}"></script>
+	<script type="text/javascript" th:src="@{/js/korea.js}"></script>
+	<script type="text/javascript" th:src="@{/js/test.js}"></script>
+
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" th:href="@{https://fonts.googleapis.com}" />
+	<link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin />
+	<link
+		th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap}"
+		rel="stylesheet" />
+
+	<!-- Icon Font Stylesheet -->
+	<link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css}" rel="stylesheet" />
+	<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet" />
+
+	<!-- Libraries Stylesheet -->
+	<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet" />
+	<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet" />
+
+	<!-- Customized Bootstrap Stylesheet -->
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<link rel="stylesheet" th:href="@{/css/korea.css}" />
+	<!-- Template Stylesheet -->
+	<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+	<link id="contextPathHolder" th:data-contextPath="${@environment.getProperty('thymeleaf.context.path.value')}" />
+</head>
+
+<body onload="drawMap('#container')">
+	<!-- Spinner Start -->
+	<div id="spinner"
+		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+		<div class="spinner-grow text-primary" role="status"></div>
+	</div>
+	<!-- Spinner End -->
+
+	<!-- Topbar Start -->
+	<div class="container-fluid bg-light p-0">
+		<div class="row gx-0 d-none d-lg-flex">
+			<div class="col-lg-7 px-5 text-start">
+				<div class="h-100 d-inline-flex align-items-center border-start border-end px-3">
+					<small class="fa fa-phone-alt me-2"></small>
+					<a th:href='@{tel:02-3486-3456}' style="color: #8D9297;"><small>02-3486-3456</small><a>
+				</div>
+				<div class="h-100 d-inline-flex align-items-center border-end px-3">
+					<small class="fa fa-globe me-2"></small>
+					<a th:href="@{https://www.bitacademy.com/}"
+						style="color: #8D9297;"><small>https://www.bitacademy.com/</small></a>
+				</div>
+			</div>
+			<div class="col-lg-5 px-5 text-end">
+				<div class="h-100 d-inline-flex align-items-center">
+					<a class="btn btn-square border" th:href="@{https://github.com/BitMiniProject}"><i
+							class="fab fa-github"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Topbar End -->
+
+	<!-- Navbar Start -->
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+		<a th:href="@{/#}" class="navbar-brand d-flex align-items-center">
+			<h1 class="m-0">
+				<img th:src="@{/img/3.png}" style="width: 100px;" alt="">
+			</h1>
+		</a>
+		<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav ms-auto py-3 py-lg-0">
+				<a th:href="@{/#}" class="nav-item nav-link active">Home</a>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<div class="navbar-nav ms-auto py-3 py-lg-0">
+						<div class="nav-item dropdown">
+							<a th:href="@{#}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">분석</a>
+							<div class="dropdown-menu bg-light m-0">
+								<a th:href="@{/index/feature}" class="dropdown-item">경기 악화 판단 지수</a>
+								<a th:href="@{/index/appointment}" class="dropdown-item"> 취업의 주 요인</a>
+								<a th:href="@{/index/about}" class="dropdown-item">실업률 주 요인</a>
+								<a th:href="@{/index/testimonial}" class="dropdown-item">결론</a>
+							</div>
+						</div>
+						<div class="nav-item dropdown">
+							<a th:href="@{#}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ETC</a>
+							<div class="dropdown-menu bg-light m-0">
+								<a th:href="@{/index/team}" class="dropdown-item">팀 소개</a>
+								<a th:href="@{/index/contact}" class="dropdown-item">CONTACT US</a>
+							</div>
+						</div>
+						<a th:href="@{/index/board}" class="nav-item nav-link">자유게시판</a>
+					</div>
+				</div>
+	</nav>
+	<!-- Navbar End -->
+
+	<!-- Carousel Start -->
+	<div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+		<div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="w-100" th:src="@{/img/bg2.jpg}" alt="Image" />
+					<div class="carousel-caption">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-12 col-lg-10">
+									<h5 style="color: white;">
+										비트교육센터 미니프로젝트 NGOT
+									</h5>
+									<h1 class="display-2 text-light mb-3 animated slideInDown">
+										코로나와 경제활동참가율의 상관관계
+									</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="w-100" th:src="@{/img/bg1.jpeg}">
+					<div class="carousel-caption">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-12 col-lg-10">
+									<h5 class="text-light text-uppercase mb-3 animated slideInDown"
+										style="font-family: IBMPlexSansKR-Regular;">
+										비트교육센터 미니프로젝트 NGOT
+									</h5>
+									<h1 class="display-2 text-light mb-3 animated slideInDown">
+										코로나와 경제활동참가율의 상관관계
+									</h1>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+	<!-- Carousel End -->
+	<script>
+		async function getData() {
+			const response = await fetch("../json/korea.json");
+			const json = await response.json();
+
+			for (let data of json.features) {
+				data.properties.data = 50;
+			}
+			console.log(json);
+
+			/*		console.log("");
+					console.log("[main] : [jsonData] : " + JSON.stringify(json));
+					console.log("");
+		
+					console.log("");
+					console.log("[main] : [idx] : " + jsonData.idx);
+					console.log("[main] : [name] : " + jsonData.name);
+					console.log("[main] : [program] : " + JSON.stringify(jsonData.program));
+					console.log(""); */
+		}
+	</script>
+
+
+
+	<!-- Facts Start -->
+	<div style="text-align: center;">
+		<div style="text-align: center;">
+
+			<form method="post" action="${contextPath}/index/">
+
+				<h3>［ 코로나 누적 확진자 ］ </h3> <br>
+				<h5>원하는 시기의 지도를 선택해주세요.</h5>
+
+				<select id="sido_select" name="sidocode" onchange="getMonth()">
+				</select> &nbsp;
+
+				<select id="year_select" name="year" onchange="getMonth()">
+				</select> &nbsp;
+
+
+				<select id="month_select" name="month">
+				</select> &nbsp;
+
+				<input type="button" value="조회" onclick="setValueToMap()">
+				
+				<input style="display: none;" type="text" id="del" value="">
+			</form>
+
+			<div style="text-align: center; display: inline-block; margin:0 auto;">
+				<div id="container"></div>
+			</div>
+			<!--지도-->
+		</div>
+		<img th:src="@{/img/covidpeople.png}" alt="" style="max-width: 100%; height: auto;"
+			onclick="window.open(this.src)" />
+	</div>
+
+	<!-- Features Start -->
+	<br> <br> <br> <br>
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="border-start border-5 border-primary ps-4 mb-5">
+						<h6 style="color: #9D9297;">배경</h6>
+						<b>
+							<h1 class="display-6 mb-0">
+								사회적 배경
+							</h1>
+						</b>
+					</div>
+					<div class="mb-5" style="color: black;" align="left">
+						<b><span style="color: #2d81ff;">코로나바이러스감염증-19</span></b>는 2019년 11월, 중국 후베이성 우한시에서 처음으로 발생하여
+						보고된 새로운 유형의
+						변종
+						코로나바이러스인 SARS-CoV-2에 의해 발병한 급성 호흡기 전염병입니다.
+						2019년 11월부터 중국에서 최초 보고되고 퍼지기 시작해 현재까지 전 세계에서 지속되고 있는 범유행전염병이자 사람과 동물 모두 감염되는 인수공통전염병입니다. <span
+							style="background: linear-gradient(to top, #bed8ff 50%, transparent 50%);">한국은 사회적 거리두기가
+							2022년 5월 2일부터
+							해제되었으나, 2021년 8월 수도권 거리두기 4단계 유지할정도로 코로나 바이러스 확진자가 증가되었습니다.</span>
+					</div>
+					<div class="row gy-5 gx-4">
+						<div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+							<div class="d-flex align-items-center mb-3">
+								<i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
+								<h6 class="mb-0">코로나 시국 빨간불 켜진 ‘극단선택’…취업 실패·생활고까지</h6>
+							</div>
+							<span>
+								<a th:href="@{https://view.asiae.co.kr/article/2022081009093576779}">출처 : 아시아 경제</a>
+							</span>
+						</div>
+						<div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+							<div class="d-flex align-items-center mb-3">
+								<i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
+								<h6>코로나19에 2020년 대졸자 취업률 전년보다 하락</h6>
+							</div>
+							<span>
+								<a th:href="@{http://news.unn.net/news/articleView.html?idxno=522754}">출처 : UNN</a>
+							</span>
+						</div>
+						<div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+							<div class="d-flex align-items-center mb-3">
+								<i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
+								<h6 class="mb-0">상반기 실업률 1위 구미·오산…농어촌보다 도시 코로나 타격↑</h6>
+							</div>
+							<span><a th:href="@{https://www.yna.co.kr/view/AKR20200825080500002}">출처 : 연합뉴스</a> </span>
+						</div>
+						<div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+							<div class="d-flex align-items-center mb-3">
+								<i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
+								<h6 class="mb-0">치솟는 실업률··· 코로나19가 실업률에 미친 영향은?</h6>
+							</div>
+							<span><a th:href="@{https://www.esrikr.com/blog/covid19-unemployment-report/}">출처 : esrikr
+								</a></span>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px">
+						<center>
+							<h3 style="color:#2d81ff;"><i class="icon brands major fab fa-youtube"></i> YOUTUBE</h3>
+						</center>
+						<div class="video-wrap">
+							<iframe id="video" width="100%" height="100%"
+								th:src="@{https://www.youtube.com/embed/opR-Zp1Y-S8?start=1}" frameborder="0"
+								allow="encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- Features End -->
+
+	<!-- About Start -->
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="position-relative overflow-hidden ps-5 pt-5" style="min-height: 400px">
+						<img th:src="@{https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_960_720.jpg}"
+							style="width: 600px; max-width: 100%; height: auto;" alt="">
+					</div>
+				</div>
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="h-100">
+						<br><br>
+						<div class="border-start border-5 border-primary ps-4 mb-5">
+							<span style="font-family: KOHIBaeumOTF;">
+								<b>
+									<h6 style="color: #9D9297;">가설 설정</h6>
+								</b>
+								<span style="font-family: KOHIBaeumOTF;">
+									<h1>
+										"코로나로 인해 경기 악화가 되어서 취업률이 낮아지고 실업률이 높아져서
+										경제활동참가율의 감소가 될 것입니다"
+									</h1><span>
+						</div>
+
+						<div class="mb-6" style="color: black;" align="left">
+							저희 조 사회적 배경을 바탕으로 <span
+								style="background: linear-gradient(to top, #bed8ff 50%, transparent 50%);"><b>"코로나로 인해
+									경기 악화가 되어서 취업률이
+									낮아지고 실업률이 높아져서 경제활동참가율의 감소가 될 것이다"라는 가설을 설정하였습니다.</b></span> 코로나로 인해 경기가 안좋아져서 회사의
+							어려움으로 취업률이 낮아지고
+							실업률이 높아질 거라 생각되어 사람들의 경제활동 참가율 또한 저조할 것으로 생각되었습니다. </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br> <br><br>
+	<!-- About End -->
+
+
+
+
+	<!-- Footer Start -->
+	<div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+		<div class="container py-5">
+			<div class="row g-5">
+				<div class="col-lg-3 col-md-6">
+					<div class="container">
+						비트교육센터 미니프로젝트
+						<h2 class="title">
+							<span class="title-word title-word-1">New</span><br>
+							<span class="title-word title-word-2">Generation</span><br>
+							<span class="title-word title-word-3">Of</span><br>
+							<span class="title-word title-word-4">Technology</span>
+						</h2>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-light mb-4">Address</h4>
+					<p>
+						<i class="fa fa-map-marker-alt me-3"></i>서울특별시 서초구 서초대로74길 33
+					</p>
+					<p><i class="fa fa-phone-alt me-3"></i>02-3486-345</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-light mb-4">Quick Links</h4>
+					<a class="btn btn-link" th:href="@{/index/feature}"><i class="fa fa-check"> 경기 악화 판단 지수</i></a>
+					<a class="btn btn-link" th:href="@{/index/appointment}"><i class="fa fa-check"> 취업의 주 요인</i></a>
+					<a class="btn btn-link" th:href="@{/index/about}"><i class="fa fa-check"> 실업률 주 요인</i></a>
+					<a class="btn btn-link" th:href="@{/index/testimonial}"><i class="fa fa-check"> 결론</i></a>
+					<a class="btn btn-link" th:href="@{/index/team}"><i class="fa fa-check"> 팀 소개</i></a>
+					<a class="btn btn-link" th:href="@{/index/contact}"><i class="fa fa-check"> contact us</i></a>
+					<a class="btn btn-link" th:href="@{/index/board}"><i class="fa fa-check"> 자유게시판</i></a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<img th:src="@{/img/4.png}" alt="" style="width: 350px;">
+				</div>
+			</div>
+			<div class="container-fluid copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+							&copy; <a th:href="@{#header}">NGOT</a>, All Right Reserved.
+						</div>
+						<div class="col-md-6 text-center text-md-end">
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a th:href="@{https://htmlcodex.com}">HTML Codex</a>
+							<br />Distributed By:
+							<a th:href="@{https://themewagon.com}" target="_blank">ThemeWagon</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer End -->
+
+			<!-- Back to Top -->
+			<div class="moveTopBtn">
+				<a th:href="@{#header}" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+						class="bi bi-arrow-up"></i></a>
+			</div>
+
+			<!-- JavaScript Libraries -->
+			<script th:src="@{https://code.jquery.com/jquery-3.4.1.min.js}"></script>
+			<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js}"></script>
+			<script th:src="@{/lib/wow/wow.min.js}"></script>
+			<script th:src="@{/lib/easing/easing.min.js}"></script>
+			<script th:src="@{/lib/waypoints/waypoints.min.js}"></script>
+			<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+
+			<!-- Template Javascript -->
+			<script th:src="@{/js/main.js}"></script>
+		</div>
+</body>
+
+</html>
